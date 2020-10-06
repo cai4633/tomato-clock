@@ -1,0 +1,12 @@
+<!--components/tConfirm/tConfirm.wxml-->
+<view class="t-confirm" wx:if="{{visible}}">
+    <view class="container">
+        <view class="content">
+            <textarea placeholder="{{placeholder}}" placeholder-style="color:#bbb;"></textarea>
+        </view>
+        <view class="action">
+            <view class="cancel" hover-class='active'  hover-stay-time="200" bindtap="cancel">取消</view>
+            <view class="enter" hover-class='active' hover-stay-time="200" bindtap="enter">确定</view>
+        </view>
+    </view>
+</view>

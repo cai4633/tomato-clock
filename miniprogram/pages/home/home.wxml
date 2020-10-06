@@ -1,4 +1,6 @@
 <!--pages/home/home.wxml-->
-<t-button text="暂停" type='border'></t-button>
-<t-button text="放弃" type='padding'></t-button>
+<view class='todo-list'>
+</view>
+<t-button text="创建任务" type='padding' bindbtnClick='showConfirm'></t-button>
 <t-clock text='20:20'></t-clock>
+<t-confirm visible='{{confirmVisible}}' bindcancel='cancel' bindenter='enter'></t-confirm>

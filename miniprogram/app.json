@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "components/tButton/tButton",
-    "components/tClock/tClock"
+    "components/tClock/tClock",
+    "components/tConfirm/tConfirm"
   ],
   "window": {
     "backgroundTextStyle": "light",

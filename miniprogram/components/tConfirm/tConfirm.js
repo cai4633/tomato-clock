@@ -1,9 +1,25 @@
-// pages/home/home.js
-Page({
-  data: {
-    confirmVisible: false,
-  },
+// components/tConfirm/tConfirm.js
+Component({
 
+  /**
+   * 页面的初始数据
+   */
+  data: {
+
+  },
+  properties: {
+    visible: {
+      type: Boolean,
+      value: false
+    },
+    placeholder: {
+      type: String,
+      value: '请输入'
+    }
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
 
   },
@@ -56,22 +72,12 @@ Page({
   onShareAppMessage: function () {
 
   },
-  showConfirm(e) {
-    this.setData({
-      confirmVisible: true
-    })
-  },
-  hideConfirm() {
-    this.setData({
-      confirmVisible: false
-    })
-  },
-  cancel(e) {
-    this.hideConfirm()
-  },
-  enter(e) {
-    this.hideConfirm()
-    console.log(e);
+  methods: {
+    cancel(){
+      this.triggerEvent('cancel')
+    },
+    enter(){
+      this.triggerEvent('enter')
+    }
   }
-
 })

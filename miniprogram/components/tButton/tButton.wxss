@@ -1,4 +1,5 @@
 /* components/tButton/tButton.wxss */
+
 button {
   display: flex;
   align-items: center;
