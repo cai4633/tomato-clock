@@ -1,7 +1,56 @@
 // pages/home/home.js
+import {
+  createId
+} from '../../utils/util'
 Page({
   data: {
     confirmVisible: false,
+    todoList: [{
+        id: 1,
+        text: 'wishing尼玛1',
+        finished: false
+      },
+      {
+        id: 2,
+        text: 'wishing尼玛2',
+        finished: true
+      },
+      {
+        id: 3,
+        text: 'wishing尼玛3',
+        finished: true
+      },
+      {
+        id: 4,
+        text: 'wishing尼玛4',
+        finished: true
+      },
+      {
+        id: 5,
+        text: 'wishing尼玛5',
+        finished: true
+      },
+      {
+        id: 6,
+        text: 'wishing尼玛5',
+        finished: true
+      },
+      {
+        id: 7,
+        text: 'wishing尼玛5',
+        finished: true
+      },
+      {
+        id: 8,
+        text: 'wishing尼玛5',
+        finished: true
+      },
+      {
+        id: 9,
+        text: 'wishing尼玛5',
+        finished: true
+      },
+    ]
   },
 
   onLoad: function (options) {
@@ -71,7 +120,20 @@ Page({
   },
   enter(e) {
     this.hideConfirm()
-    console.log(e);
+    this.addlist(e.detail)
+    console.log(this.data.todoList);
+    
+  },
+  addlist(content) {
+    const list = this.data.todoList.slice()
+    const newItem = {
+      id: createId(this.data.todoList),
+      text: content,
+      finished: false
+    }
+    this.setData({
+      todoList: [...list, newItem]
+    })
   }
 
 })

@@ -1,0 +1,7 @@
+<!--components/todoList/todoList.wxml-->
+<scroll-view class='todo-list' scroll-y="true">
+  <view class="li" wx:for="{{list}}" wx:key='{{item.id}}'>
+    <view class='select {{item.finished && "finished"}}'></view>
+    <view class='text'>{{item.text}}</view>
+  </view>
+</scroll-view>

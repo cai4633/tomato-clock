@@ -1,6 +1,9 @@
 <!--pages/home/home.wxml-->
-<view class='todo-list'>
+<t-todo-list list='{{todoList}}'></t-todo-list>
+<view class="btn-wrapper">
+  <t-button text="创建任务" type='padding' bindbtnClick='showConfirm'></t-button>
 </view>
-<t-button text="创建任务" type='padding' bindbtnClick='showConfirm'></t-button>
-<t-clock text='20:20'></t-clock>
+<view class="clock-wrapper">
+  <t-clock text='20:20'></t-clock>
+</view>
 <t-confirm visible='{{confirmVisible}}' bindcancel='cancel' bindenter='enter'></t-confirm>

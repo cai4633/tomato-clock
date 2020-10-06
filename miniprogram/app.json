@@ -5,7 +5,8 @@
     "pages/logs/logs",
     "components/tButton/tButton",
     "components/tClock/tClock",
-    "components/tConfirm/tConfirm"
+    "components/tConfirm/tConfirm",
+    "components/todoList/todoList"
   ],
   "window": {
     "backgroundTextStyle": "light",

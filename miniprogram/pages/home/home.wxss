@@ -1,1 +1,11 @@
 /* pages/home/home.wxss */
+.btn-wrapper {
+  margin-top: 20px;
+}
+
+.clock-wrapper {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}

@@ -24,7 +24,7 @@
     ]
   },
   "include": [
-    "./**/*.ts"
+    "./**/*.ts", "miniprogram/pages/home/home.js"
   ],
   "exclude": [
     "node_modules"
