@@ -1,0 +1,2 @@
+<!--components/tButton/tButton.wxml-->
+<button size="{{size}}" type="{{type}}" class="{{['pause','drop'].indexOf(type) !== -1 && type}}" hover-class="active">{{text}}</button>

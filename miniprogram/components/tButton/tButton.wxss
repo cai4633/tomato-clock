@@ -1,0 +1,21 @@
+/* components/tButton/tButton.wxss */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.padding {
+  color: #fff;
+  background-image: linear-gradient(to right, #FD986E, #F6705A);
+}
+
+.border {
+  color: #FD986E;
+  border: 1px solid #FD986E;
+}
+.active {
+  box-shadow: 1px 1px 2px  #FD986E;
+}

@@ -1,0 +1,4 @@
+<!--pages/home/home.wxml-->
+<t-button text="暂停" type='border'></t-button>
+<t-button text="放弃" type='padding'></t-button>
+<t-clock text='20:20'></t-clock>
