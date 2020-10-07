@@ -2,7 +2,7 @@
 @import '../../common/wxss/mixins.wxss';
 
 .todo-list {
-  height: 300px;
+  height: 552rpx;
   font-size: 28rpx;
 }
 

@@ -2,18 +2,34 @@
   "pages": [
     "pages/home/home",
     "pages/index/index",
-    "pages/logs/logs",
-    "components/tButton/tButton",
-    "components/tClock/tClock",
-    "components/tConfirm/tConfirm",
-    "components/todoList/todoList"
+    "pages/logs/logs"
   ],
+  "tabBar": {
+    "selectedColor": "#F6705A",
+    "list": [{
+      "pagePath": "pages/home/home",
+      "iconPath": "common/images/total.png",
+      "selectedIconPath": "common/images/total-active.png",
+      "text": "专注"
+    }, {
+      "pagePath": "pages/index/index",
+      "iconPath": "common/images/home.png",
+      "selectedIconPath": "common/images/home-active.png",
+      "text": "统计"
+    }, {
+      "pagePath": "pages/index/index",
+      "iconPath": "common/images/me.png",
+      "selectedIconPath": "common/images/me-active.png",
+      "text": "我的"
+    }]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "番茄闹钟",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
+
 }
