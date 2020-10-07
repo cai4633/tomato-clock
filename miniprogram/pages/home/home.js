@@ -1,7 +1,7 @@
 // pages/home/home.js
 import {
   createId
-} from '../../utils/util'
+} from '../../common/js/utils'
 Page({
   data: {
     confirmVisible: false,
