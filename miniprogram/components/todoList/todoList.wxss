@@ -1,14 +1,20 @@
 /* components/todoList/todoList.wxss */
+@import '../../common/wxss/mixins.wxss';
+
 .todo-list {
   height: 300px;
+  font-size: 28rpx;
 }
 
 .todo-list .li {
   display: flex;
-  padding: 0 10px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 5px 10px;
+  background-color: var(--theme-bg);
+  margin: 10rpx 10px;
+  border-radius: 10rpx;
 }
 
 .todo-list .li .select {

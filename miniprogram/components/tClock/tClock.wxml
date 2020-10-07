@@ -1,5 +1,5 @@
 <!--components/tClock/tClock.wxml-->
 <view class="clock" style="width:{{width}}px;height:{{height}}px;" hover-class="active" hover-stay-time="100">
   <text class="text">{{text}}</text>
-  <image src="../../images/tomato.png" mode="aspectFit"></image>
+  <image src="../../common/images/tomato.png" mode="aspectFit"></image>
 </view>

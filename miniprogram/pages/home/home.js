@@ -7,47 +7,47 @@ Page({
     confirmVisible: false,
     todoList: [{
         id: 1,
-        text: 'wishing尼玛1',
+        text: '我今天干了啥1,我今天干了啥1,我今天干了啥1,我今天干了啥1,我今天干了啥1我今天干了啥1我今天干了啥1我今天干了啥1我今天干了啥1我今天干了啥1我今天干了啥1',
         finished: false
       },
       {
         id: 2,
-        text: 'wishing尼玛2',
+        text: '我今天干了啥2',
         finished: true
       },
       {
         id: 3,
-        text: 'wishing尼玛3',
+        text: '我今天干了啥3',
         finished: true
       },
       {
         id: 4,
-        text: 'wishing尼玛4',
+        text: '我今天干了啥4',
         finished: true
       },
       {
         id: 5,
-        text: 'wishing尼玛5',
+        text: '我今天干了啥5',
         finished: true
       },
       {
         id: 6,
-        text: 'wishing尼玛5',
+        text: '我今天干了啥5',
         finished: true
       },
       {
         id: 7,
-        text: 'wishing尼玛5',
+        text: '我今天干了啥5',
         finished: true
       },
       {
         id: 8,
-        text: 'wishing尼玛5',
+        text: '我今天干了啥5',
         finished: true
       },
       {
         id: 9,
-        text: 'wishing尼玛5',
+        text: '我今天干了啥5',
         finished: true
       },
     ]

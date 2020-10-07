@@ -2,6 +2,7 @@
 
 page {
   --theme-color: #F6705A;
+  --theme-bg: #f0f0f0;
 }
 
 .container {
@@ -13,3 +14,4 @@ page {
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
