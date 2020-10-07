@@ -1,5 +1,5 @@
 <!--pages/home/home.wxml-->
-<t-todo-list list='{{todoList}}'></t-todo-list>
+<t-todo-list list='{{todoList}}' bindtoggle='toggleFinished'></t-todo-list>
 <view class="btn-wrapper">
   <t-button text="创建任务" type='padding' bindbtnClick='showConfirm'></t-button>
 </view>

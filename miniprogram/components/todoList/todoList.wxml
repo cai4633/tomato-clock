@@ -1,6 +1,6 @@
 <!--components/todoList/todoList.wxml-->
 <scroll-view class='todo-list' scroll-y="true">
-  <view class="li" wx:for="{{list}}" wx:key='{{item.id}}'>
+  <view class="li" wx:for="{{list}}" wx:key='{{item.id}}' bindtap="ontab" id='{{item.id}}'>
     <view class='select {{item.finished && "finished"}}'></view>
     <view class='text nowrap-2'>{{item.text}}</view>
   </view>

@@ -121,8 +121,6 @@ Page({
   enter(e) {
     this.hideConfirm()
     this.addlist(e.detail)
-    console.log(this.data.todoList);
-    
   },
   addlist(content) {
     const list = this.data.todoList.slice()
@@ -133,6 +131,20 @@ Page({
     }
     this.setData({
       todoList: [...list, newItem]
+    })
+  },
+  toggleFinished(e) {
+    const id = parseInt(e.detail)
+    if (!id) { // id 是NaN
+      return
+    }
+    const list = this.data.todoList.slice()
+    const newlist = list.map((item) => item.id === id ? {
+      ...item,
+      finished: !item.finished
+    } : item)
+    this.setData({
+      todoList: newlist
     })
   }
 
