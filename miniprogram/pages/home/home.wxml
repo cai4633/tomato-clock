@@ -1,9 +1,15 @@
 <!--pages/home/home.wxml-->
-<t-todo-list list='{{todoList}}' bindtoggle='toggleFinished'></t-todo-list>
-<view class="btn-wrapper">
-  <t-button text="创建任务" type='padding' bindbtnClick='showConfirm'></t-button>
+<view class="home">
+  <view class="list">
+    <t-todo-list list='{{todoList}}' bindtoggle='toggleFinished'></t-todo-list>
+  </view>
+  <view class="btn-wrapper">
+    <t-button text="创建任务" type='padding' bindbtnClick='showConfirm'></t-button>
+  </view>
+  <view class="clock-wrapper">
+    <navigator url="/pages/tomato/tomato" hover-class="none">
+      <t-clock text='点击开始番茄' fontSize='26'></t-clock>
+    </navigator>
+  </view>
+  <t-confirm visible='{{confirmVisible}}' bindcancel='cancel' bindenter='enter' placeholder='新的番茄任务'></t-confirm>
 </view>
-<view class="clock-wrapper">
-  <t-clock text='20:20'></t-clock>
-</view>
-<t-confirm visible='{{confirmVisible}}' bindcancel='cancel' bindenter='enter'></t-confirm>

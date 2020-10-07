@@ -2,7 +2,9 @@
   "pages": [
     "pages/home/home",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/tomato/tomato"
+
   ],
   "tabBar": {
     "selectedColor": "#F6705A",

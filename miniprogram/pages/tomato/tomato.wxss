@@ -1,0 +1,21 @@
+/* pages/tomato/tomato.wxss */
+.tomato {
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--theme-color)
+}
+
+.tomato .title {
+  margin-top: 120rpx;
+}
+.tomato .clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tomato .action .start{
+  margin: 60rpx;
+}
+.tomato .again {
+  margin-top: 60rpx;
+}

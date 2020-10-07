@@ -1,0 +1,22 @@
+<!--pages/tomato/tomato.wxml-->
+<view class="tomato">
+  <view class="title">距离结束还有</view>
+  <view class="clock">
+    <t-clock text='{{time}}' fontSize='56'></t-clock>
+  </view>
+  <view class="action">
+    <view class="start-wrap" wx:if="{{!isStop}}">
+      <view class="start">
+        <t-button text='暂停' type='padding' wx:if="{{!isPause}}" bindtap="timePause"></t-button>
+        <t-button text='开始' type='padding' wx:else bindtap="timeStart"></t-button>
+      </view>
+      <t-button text='放弃' type='border' bindtap="abandon"></t-button>
+    </view>
+    <view class="again" wx:else>
+      <t-button text='再来一遍' type='padding'  bindtap="timeStart"></t-button>
+    </view>
+  </view>
+  <view class="confirm">
+    <t-confirm visible='{{visible}}' oncancel='cancel' onenter='enter'> </t-confirm>
+  </view>
+</view>
