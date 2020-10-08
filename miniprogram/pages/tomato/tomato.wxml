@@ -17,6 +17,6 @@
     </view>
   </view>
   <view class="confirm">
-    <t-confirm visible='{{visible}}' oncancel='cancel' onenter='enter'> </t-confirm>
+    <t-confirm visible='{{visible}}' oncancel='cancel' onenter='enter' placeholder='放弃的理由'> </t-confirm>
   </view>
 </view>

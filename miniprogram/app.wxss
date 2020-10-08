@@ -3,6 +3,7 @@
 page {
   --theme-color: #F6705A;
   --theme-bg: #f0f0f0;
+  --theme-gradient: linear-gradient(to right, #FD986E, #F6705A);
 }
 
 .container {

@@ -10,7 +10,7 @@ button {
 
 .padding {
   color: #fff;
-  background-image: linear-gradient(to right, #FD986E, #F6705A);
+  background-image: var(--theme-gradient);
 }
 
 .border {

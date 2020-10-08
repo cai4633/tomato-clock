@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/me/me",
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
@@ -19,7 +20,7 @@
       "selectedIconPath": "common/images/home-active.png",
       "text": "统计"
     }, {
-      "pagePath": "pages/index/index",
+      "pagePath": "pages/me/me",
       "iconPath": "common/images/me.png",
       "selectedIconPath": "common/images/me-active.png",
       "text": "我的"

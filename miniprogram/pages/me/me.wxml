@@ -1,0 +1,30 @@
+<!--pages/me/me.wxml-->
+<view class="me">
+  <view class="userInfo">
+    <view class="avatar">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="name">
+      <open-data type="userNickName"></open-data>
+      <text class='btn'>绑定pc账号</text>
+    </view>
+    <view class="qr">
+      <button open-type='contact' class='btn'>问题反馈</button>
+    </view>
+  </view>
+  <view class="content-wrap">
+    <view class="tabs">
+      <view class="tab active"><text>番茄历史</text></view>
+      <view class="tab"><text>我完成的任务</text></view>
+    </view>
+    <view class="content">
+      <view class="item" wx:for="{{taskList}}" wx:key='index'>
+        <view class="date">{{index}}</view>
+        <view class="task" wx:for="{{item}}" wx:key='id' wx:for-item='task'>
+          <text class="time">{{task.time}}</text>
+          <text class="text">{{task.text}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

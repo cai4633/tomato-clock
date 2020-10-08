@@ -1,0 +1,100 @@
+/* pages/me/me.wxss */
+.me {}
+
+/* 用户信息css */
+.me .userInfo {
+  display: flex;
+  background-color: var(--theme-bg);
+  justify-content: space-between;
+  padding: 18rpx 0;
+}
+
+.me .userInfo .avatar {
+  flex: 0 0 120rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 20rpx;
+}
+
+.me .userInfo .name {
+  margin-left: 20rpx;
+  flex: 1;
+  padding: 14rpx 0;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.me .userInfo .qr {
+  font-size: 32rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.me .userInfo .btn {
+  color: var(--theme-color);
+  font-size: 20rpx;
+  font-weight: 600;
+}
+
+.me .userInfo button {
+  padding: 0;
+  margin-right: 30rpx;
+  width: 120rpx;
+  min-height: 2em;
+  line-height: 2em;
+  background-color: transparent;
+}
+
+/* tabs */
+
+.me .content-wrap .tabs {
+  font-size: 28rpx;
+  display: flex;
+  text-align: center;
+  line-height: calc(80 / 28);
+}
+
+.me .tabs .tab {
+  flex: 1;
+}
+
+.me .tab text{
+  display: inline-block;
+}
+.me .tab.active text::after {
+  content: '';
+  display: block;
+  height: 3px;
+  background: var(--theme-gradient);
+}
+
+/* content */
+.me .content {
+  background-color: var(--theme-bg);
+  padding: 6rpx;
+}
+
+.me .content .item {
+  background-color: #fff;
+  margin: 20rpx;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+.me .content .item .date{
+  font-size: 36rpx;
+  margin-bottom: 24rpx;
+}
+.me .item .task {
+  display: flex;
+  margin: 16rpx 0;
+}
+.me .item .task .time {
+  margin-right: 30rpx;
+}
