@@ -1,0 +1,19 @@
+/* components/tInput/tInput.wxss */
+.t-input {
+  display: flex;
+  border: 1px solid var(--theme-color);
+  border-radius: 10rpx;
+  color: var(--theme-color);
+  font-size: 24rpx;
+  align-items: center;
+  line-height: 3em;
+}
+
+.t-input label{
+  margin: 0 20rpx;
+}
+.t-input input{
+  flex: 1;
+  margin-right: 20rpx;
+  color: #000;
+}

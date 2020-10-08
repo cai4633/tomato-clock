@@ -9,5 +9,7 @@
   <view class="btn">
     <t-button type='padding' text='登录'></t-button>
   </view>
-  <text>还没有与pc端绑定？去绑定 ></text>
+  <navigator url="/pages/binding/binding" hover-class="none">
+    <text>还没有与pc端绑定？去绑定 ></text>
+  </navigator>
 </view>

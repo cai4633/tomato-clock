@@ -1,0 +1,4 @@
+<!--components/tInput/tInput.wxml-->
+<view class="t-input">
+  <label for='{{id}}'>{{label}}</label><input type="{{type}}" placeholder="{{placeholder}}" id="{{id}}" />
+</view>

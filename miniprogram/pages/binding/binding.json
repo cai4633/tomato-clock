@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "t-input": "../../components/tInput/tInput",
+    "t-button": "../../components/tButton/tButton"
+  }
+}

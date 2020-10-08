@@ -1,0 +1,28 @@
+/* pages/binding/binding.wxss */
+.binding {
+  padding: 82rpx 60rpx;
+}
+
+.binding .input-wrap {
+  margin: 82rpx 0;
+}
+
+.binding .input-wrap .input {
+  margin: 53rpx 0;
+}
+
+.binding .tip {
+  text-align: center;
+  color: var(--theme-color);
+  font-size: 20rpx;
+  margin-top: 48rpx;
+}
+.bg{
+  width: 100vw;
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+.bg image{
+  width: 100%;
+}
