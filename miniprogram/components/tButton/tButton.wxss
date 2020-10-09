@@ -1,4 +1,5 @@
 /* components/tButton/tButton.wxss */
+@import "../../common/wxss/mixins.wxss";
 
 button {
   display: flex;
@@ -8,10 +9,6 @@ button {
   font-size: 13px;
 }
 
-.padding {
-  color: #fff;
-  background-image: var(--theme-gradient);
-}
 
 .border {
   color: #FD986E;

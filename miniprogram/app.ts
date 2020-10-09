@@ -1,19 +1,18 @@
 // app.ts
 App<IAppOption>({
-  globalData: {},
+  globalData: {
+    host: 'https://gp-server.hunger-valley.com', 
+    app_id: "wxda5eb3e23cf59bfd",
+    app_secret: "1b782b720d2504479e83533c5d8461ce",
+    t_app_id: "L3foKddALZ67NSo1K2e3CpGx",
+    t_app_secret: "rhqUPJ1j3VmqcAYwj4WJysfo"
+  },
   onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      success: res => {
-        console.log(res.code)
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      },
-    })
     // 获取用户信息
     wx.getSetting({
       success: res => {

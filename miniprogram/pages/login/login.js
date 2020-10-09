@@ -1,16 +1,52 @@
 // pages/login/login.js
+import {
+  http
+} from '../../api/http'
+
+const {
+  app_id,
+  app_secret
+} = getApp().globalData
 Page({
 
   data: {
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  login(e) {
+    const {
+      iv,
+      encryptedData,
+    } = e.detail
+    this.wxLogin(iv, encryptedData)
   },
+
+  wxLogin(iv, encryptedData) {
+    wx.login({
+      success: (res) => {
+        const data = {
+          code: res.code,
+          encrypted_data: encryptedData,
+          iv,
+          app_id,
+          app_secret
+        }
+        http.post('/sign_in/mini_program_user', data).then((res) => {
+          this.saveMessage(res.data.resource, res.header['X-token'])
+          wx.reLaunch({
+            url: '/pages/home/home',
+          })
+        })
+      }
+    })
+  },
+
+  saveMessage(data, token) {
+    wx.setStorageSync('me', data)
+    wx.setStorageSync('X-token', token)
+  },
+
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -22,9 +58,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏

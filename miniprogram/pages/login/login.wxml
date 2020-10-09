@@ -7,7 +7,7 @@
     <open-data type="userNickName"> </open-data>
   </view>
   <view class="btn">
-    <t-button type='padding' text='登录'></t-button>
+    <button class="padding" open-type="getUserInfo" bindgetuserinfo="login" withCredential='true'>登录</button>
   </view>
   <navigator url="/pages/binding/binding" hover-class="none">
     <text>还没有与pc端绑定？去绑定 ></text>

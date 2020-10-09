@@ -10,3 +10,8 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.padding {
+  color: #fff;
+  background-image: var(--theme-gradient);
+}
