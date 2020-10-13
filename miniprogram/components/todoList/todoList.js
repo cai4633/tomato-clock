@@ -16,7 +16,10 @@ Component({
 
   methods: {
     ontab(e) {
-      this.triggerEvent('toggle', e.currentTarget.id)
+      this.triggerEvent('toggle', e.currentTarget.dataset.id)
+    },
+    updateItem(e) {
+      this.triggerEvent('updateItem', e.currentTarget.dataset.id)
     }
   }
 

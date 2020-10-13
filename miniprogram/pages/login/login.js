@@ -8,7 +8,6 @@ const {
   app_secret
 } = getApp().globalData
 Page({
-
   data: {
 
   },
