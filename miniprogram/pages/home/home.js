@@ -92,9 +92,7 @@ Page({
       selectedId
     } = this.data
     updateTodoItem(this.data.selectedId, e.detail).then(value => {
-      console.log(value);
       this.setData({
-
         todoList: this.data.todoList.map((item) => (item.id === this.data.selectedId) ? value : item)
       })
     })

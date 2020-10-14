@@ -49,7 +49,7 @@ const _http = (method: WechatMiniprogram.RequestOption['method'], url: string, d
 
 export const http = {
   get: (url: string, param?: any) => _http('GET', url, param),
-  post: (url: string, data: any) => _http('POST', url, data),
+  post: (url: string, data?: any) => _http('POST', url, data),
   put: (url: string, data: any) => _http('PUT', url, data),
   delete: (url: string, data: any) => _http('DELETE', url, data),
 }

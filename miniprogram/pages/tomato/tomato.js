@@ -1,29 +1,41 @@
-// pages/tomato/tomato.js
+import {
+  createTomato,
+  updateTomato
+} from '../../api/todo';
 import {
   padLeft
 } from '../../common/js/utils';
 Page({
   timer: null,
   data: {
-    totalTime: 5,
-    remaining: 5,
+    totalTime: 1500,
+    remaining: 1500,
     time: '',
     isPause: true,
-    isStop: false,
-    visible: false
+    isFinished: false,
+    abandonConfirmVisible: false,
+    finishConfirmVisible: false,
+    tomato: null
   },
-
   formatTime(remaining) {
     this.setData({
       time: padLeft(remaining / 60 | 0) + ':' + padLeft(remaining % 60)
     })
   },
 
+  clearTimer() {
+    this.timer && clearInterval(this.timer)
+  },
+  timePause() { //暂停
+    this.setData({
+      isPause: true
+    })
+  },
   timeStart() {
     this.formatTime(this.data.remaining) //init 显示时间
     this.setData({
       isPause: false,
-      isStop: false
+      isFinished: false
     })
     if (!this.timer) { //无计时器,添加计时器
       this.timer = setInterval(() => {
@@ -40,7 +52,8 @@ Page({
             this.setData({
               remaining: this.data.totalTime,
               isPause: true,
-              isStop: true
+              isFinished: true,
+              finishConfirmVisible: true
             })
             clearInterval(this.timer)
             this.timer = null
@@ -50,69 +63,75 @@ Page({
     }
   },
 
-  timePause() { //暂停
+  showConfirm() {
     this.setData({
-      isPause: true
+      abandonConfirmVisible: true
     })
   },
+  hideConfirm() {
+    this.setData({
+      abandonConfirmVisible: false
+    })
+  },
+
   abandon() {
-    this.setData({
-      visible: true
+    this.showConfirm()
+  },
+  cancelAbandon() {
+    this.hideConfirm()
+  },
+  confirmAbandon(e) {
+    const {
+      id
+    } = this.data.tomato
+    updateTomato({
+      id,
+      description: e.detail,
+      aborted: true
+    }).then((response) => {
+      wx.navigateBack()
     })
+    this.hideConfirm()
   },
-  cancel() {
+  hideFinishConfirm() {
     this.setData({
-      visible: false
+      finishConfirmVisible: false
+    });
+  },
+  confirmFinish(e) {
+    updateTomato({
+      id: this.data.tomato.id,
+      description: e.detail,
+      aborted: false
     })
+    this.hideFinishConfirm();
   },
-  enter() {
-    this.setData({
-      visible: false
-    })
+  cancelFinish() {
+    this.hideFinishConfirm()
   },
-
-
-  onLoad: function (options) {
-
-  },
-
   onReady: function () {
     this.timeStart()
+    createTomato().then(response => {
+      this.setData({
+        tomato: response
+      })
+    })
   },
 
-  onShow: function () {
-
+  defaultAbandon() {
+    this.clearTimer()
+    updateTomato({
+      id: this.data.tomato.id,
+      description: '放弃番茄',
+      aborted: true
+    })
   },
 
   onHide: function () {
-
+    this.defaultAbandon()
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-
+    this.defaultAbandon()
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

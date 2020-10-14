@@ -24,7 +24,6 @@
 
 
 
-.t-confirm>.container .content {}
 
 .t-confirm>.container .action {
   display: flex;

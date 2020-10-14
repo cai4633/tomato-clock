@@ -21,4 +21,22 @@ const deleteTodoItem = (id: number) => {
 const updateTodoItem = (id: number, description: string) => {
   return http.put(`/todos/${id}`, { completed: false, description }).then((res) => (typeof res.data === "object") ? res.data.resource : [])
 }
-export { getTodoList, createTodoItem, deleteTodoItem, updateTodoItem }
+
+const createTomato = () => {
+  return http.post('/tomatoes').then((res) => {
+    return typeof res.data === 'object' ? res.data.resource : []
+  })
+}
+
+interface ParamType {
+  id: number
+  description: string
+  aborted: boolean
+}
+const updateTomato = (param: ParamType) => {
+  const { id, description, aborted } = param
+  return http.put(`/tomatoes/${id}`, {
+    description, aborted
+  }).then(res => typeof res.data === 'object' ? res.data.resource : [])
+}
+export { getTodoList, createTodoItem, deleteTodoItem, updateTodoItem, createTomato, updateTomato }

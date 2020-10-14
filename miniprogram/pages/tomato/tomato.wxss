@@ -2,7 +2,6 @@
 .tomato {
   text-align: center;
   font-size: 26rpx;
-  color: var(--theme-color)
 }
 
 .tomato .title {
