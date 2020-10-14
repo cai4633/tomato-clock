@@ -5,13 +5,17 @@ import {
 import {
   getTodoList,
   createTodoItem,
-  deleteTodoItem
+  deleteTodoItem,
+  updateTodoItem
 } from '../../api/todo';
 
 Page({
   data: {
-    confirmVisible: false,
-    todoList: []
+    createConfirmVisible: false,
+    updateConfirmVisible: false,
+    todoList: [],
+    defaultValue: '',
+    selectedId: 0
   },
 
   onLoad: function (options) {
@@ -42,15 +46,24 @@ Page({
    */
   onReachBottom: function () {},
   onShareAppMessage: function () {},
-
+  showUpdateConfirm() {
+    this.setData({
+      updateConfirmVisible: true
+    })
+  },
+  hideUpdateConfirm() {
+    this.setData({
+      updateConfirmVisible: false
+    })
+  },
   showCreateConfirm(e) {
     this.setData({
-      confirmVisible: true
+      createConfirmVisible: true
     })
   },
   hideCreateConfirm() {
     this.setData({
-      confirmVisible: false
+      createConfirmVisible: false
     })
   },
   cancel(e) {
@@ -64,8 +77,28 @@ Page({
       })
     })
   },
-  updateItem(e){
-    
+  updateItem(e) {
+    this.setData({
+      selectedId: e.detail.id,
+      defaultValue: e.detail.content
+    })
+    this.showUpdateConfirm()
+  },
+  cancelUpdate() {
+    this.hideUpdateConfirm()
+  },
+  enterUpdate(e) {
+    const {
+      selectedId
+    } = this.data
+    updateTodoItem(this.data.selectedId, e.detail).then(value => {
+      console.log(value);
+      this.setData({
+
+        todoList: this.data.todoList.map((item) => (item.id === this.data.selectedId) ? value : item)
+      })
+    })
+    this.hideUpdateConfirm()
   },
   toggleFinished(e) {
     const id = parseInt(e.detail)

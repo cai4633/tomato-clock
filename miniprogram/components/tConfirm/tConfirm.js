@@ -4,6 +4,10 @@ Component({
     value: ''
   },
   properties: {
+    defaultValue: {
+      type: String,
+      value: ''
+    },
     visible: {
       type: Boolean,
       value: false

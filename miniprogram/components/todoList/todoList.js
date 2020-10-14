@@ -19,7 +19,8 @@ Component({
       this.triggerEvent('toggle', e.currentTarget.dataset.id)
     },
     updateItem(e) {
-      this.triggerEvent('updateItem', e.currentTarget.dataset.id)
+      const { id, content } = e.currentTarget.dataset
+      this.triggerEvent('updateItem', { id, content })
     }
   }
 

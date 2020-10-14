@@ -2,6 +2,7 @@
 <scroll-view class='todo-list' scroll-y="true">
   <view class="li" wx:for="{{list}}" wx:key='id' id='{{item.id}}' wx:if="{{!item.completed}}">
     <view class='select {{item.completed && "finished"}}' bindtap="ontab" data-id='{{item.id}}'></view>
-    <view class='text nowrap-2' bindtap="updateItem">{{item.description}}</view>
+    <view class='text nowrap-2' bindtap="updateItem" data-id='{{item.id}}' data-content='{{item.description}}'>
+      {{item.description}}</view>
   </view>
 </scroll-view>

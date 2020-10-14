@@ -19,6 +19,6 @@ const deleteTodoItem = (id: number) => {
   return http.put(`/todos/${id}`, { completed: true }).then((res) => res.data)
 }
 const updateTodoItem = (id: number, description: string) => {
-  return http.put(`/todos/${id}`, { completed: false, description }).then((res) => res.data)
+  return http.put(`/todos/${id}`, { completed: false, description }).then((res) => (typeof res.data === "object") ? res.data.resource : [])
 }
 export { getTodoList, createTodoItem, deleteTodoItem, updateTodoItem }
