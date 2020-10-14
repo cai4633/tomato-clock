@@ -44,6 +44,9 @@ const _http = (method: WechatMiniprogram.RequestOption['method'], url: string, d
         reject(error)
       }
     })
+  }).catch((e)=>{
+    console.log(e);
+    
   })
 }
 
