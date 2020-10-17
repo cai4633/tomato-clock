@@ -96,5 +96,5 @@
   margin: 16rpx 0;
 }
 .me .item .task .time {
-  margin-right: 30rpx;
+  margin:0  30rpx;
 }

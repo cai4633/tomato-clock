@@ -2,7 +2,7 @@ import { http } from './http';
 
 const getTodoList = () => {
   return http.get('/todos?completed=false').then((res) => {
-    if (typeof res.data === "object") {
+    if (res && typeof res.data === "object") {
       return res.data.resources
     }
     return []
@@ -11,20 +11,20 @@ const getTodoList = () => {
 
 const createTodoItem = (description: string) => {
   return http.post('/todos', { description }).then(res => {
-    return (typeof res.data === "object") ? res.data.resource : []
+    return (res && typeof res.data === "object") ? res.data.resource : []
   })
 }
 
 const deleteTodoItem = (id: number) => {
-  return http.put(`/todos/${id}`, { completed: true }).then((res) => res.data)
+  return http.put(`/todos/${id}`, { completed: true }).then((res) => res && res.data)
 }
 const updateTodoItem = (id: number, description: string) => {
-  return http.put(`/todos/${id}`, { completed: false, description }).then((res) => (typeof res.data === "object") ? res.data.resource : [])
+  return http.put(`/todos/${id}`, { completed: false, description }).then((res) => ( res && typeof res.data === "object") ? res.data.resource : [])
 }
 
 const createTomato = () => {
   return http.post('/tomatoes').then((res) => {
-    return typeof res.data === 'object' ? res.data.resource : []
+    return res && typeof res.data === 'object' ? res.data.resource : []
   })
 }
 
@@ -37,6 +37,6 @@ const updateTomato = (param: ParamType) => {
   const { id, description, aborted } = param
   return http.put(`/tomatoes/${id}`, {
     description, aborted
-  }).then(res => typeof res.data === 'object' ? res.data.resource : [])
+  }).then(res => res && typeof res.data === 'object' ? res.data.resource : [])
 }
 export { getTodoList, createTodoItem, deleteTodoItem, updateTodoItem, createTomato, updateTomato }

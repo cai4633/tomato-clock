@@ -8,8 +8,8 @@ import {
 Page({
   timer: null,
   data: {
-    totalTime: 1500,
-    remaining: 1500,
+    totalTime: 5,
+    remaining: 5,
     time: '',
     isPause: true,
     isFinished: false,
@@ -103,6 +103,9 @@ Page({
       id: this.data.tomato.id,
       description: e.detail,
       aborted: false
+    }).then((res) => {
+      console.log(res);
+
     })
     this.hideFinishConfirm();
   },

@@ -14,15 +14,16 @@
   </view>
   <view class="content-wrap">
     <view class="tabs">
-      <view class="tab active"><text>番茄历史</text></view>
-      <view class="tab"><text>我完成的任务</text></view>
+      <view class="{{tabIndex === 1 ? 'tab active' : 'tab'}}" bindtap="gotoTomato"><text>番茄历史</text></view>
+      <view class="{{tabIndex === 2 ? 'tab active' : 'tab'}}" bindtap="gotoTodo"><text>我完成的任务</text></view>
     </view>
     <view class="content">
+      <wxs src='../../common/wxs/format.wxs' module="format"></wxs>
       <view class="item" wx:for="{{taskList}}" wx:key='index'>
-        <view class="date">{{index}}</view>
+        <view class="date">{{format.monthFormat(index)}}</view>
         <view class="task" wx:for="{{item}}" wx:key='id' wx:for-item='task'>
-          <text class="time">{{task.time}}</text>
-          <text class="text">{{task.text}}</text>
+          <text class="time">{{format.dateFormat(task.created_at,"hh:mm")}}</text>
+          <text class="text">{{task.description}}</text>
         </view>
       </view>
     </view>

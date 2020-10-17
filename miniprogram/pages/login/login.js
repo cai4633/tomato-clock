@@ -31,10 +31,12 @@ Page({
           app_secret
         }
         http.post('/sign_in/mini_program_user', data).then((res) => {
-          this.saveMessage(res.data.resource, res.header['X-token'])
-          wx.reLaunch({
-            url: '/pages/home/home',
-          })
+          if (res) {
+            this.saveMessage(res.data.resource, res.header['X-token'])
+            wx.reLaunch({
+              url: '/pages/home/home',
+            })
+          }
         })
       }
     })
