@@ -68,11 +68,13 @@ Page({
 
   showConfirm() {
     this.setData({
+      isPause: true,
       abandonConfirmVisible: true
     })
   },
   hideConfirm() {
     this.setData({
+      isPause: false,
       abandonConfirmVisible: false
     })
   },
@@ -85,19 +87,18 @@ Page({
   },
   confirmAbandon(e) {
     const {
-      id
+      objectId
     } = this.data.tomato
-    // updateTomato({
-    //   id,
-    //   description: e.detail,
-    //   aborted: true
-    // }).then((response) => {
-    //   wx.navigateBack()
-    // })
-    http.put(`/tomatoes/${id}`, {
+    updateTomato({
+      objectId,
       description: e.detail,
       aborted: true
-    }).then(res => res && typeof res.data === 'object' ? res.data.resource : [])
+    }).then((response) => {
+      this.setData({
+        isFinished: true
+      })
+      wx.navigateBack()
+    })
     this.hideConfirm()
   },
   hideFinishConfirm() {
@@ -106,29 +107,19 @@ Page({
     });
   },
   confirmFinish(e) {
-    http.put(`/tomatoes/${this.data.tomato.id}`, {
+    updateTomato({
+      objectId: this.data.tomato.objectId,
       description: e.detail,
       aborted: false
-    }).then(res => res && typeof res.data === 'object' ? res.data.resource : [])
-    // updateTomato({
-    //   id: this.data.tomato.id,
-    //   description: e.detail,
-    //   aborted: false
-    // }).then((res) => {
-    //   console.log(res);
-    // })
+    })
     this.hideFinishConfirm();
   },
   cancelFinish() {
     this.hideFinishConfirm()
   },
   onReady: function () {
-    console.log(111);
-
     this.timeStart()
     createTomato().then(response => {
-      console.log(response);
-
       this.setData({
         tomato: response
       })
@@ -137,11 +128,13 @@ Page({
 
   defaultAbandon() {
     this.clearTimer()
-    updateTomato({
-      id: this.data.tomato.id,
-      description: '放弃番茄',
-      aborted: true
-    })
+    if (!this.data.isFinished) {
+      updateTomato({
+        objectId: this.data.tomato.objectId,
+        description: '放弃番茄',
+        aborted: true
+      })
+    }
   },
 
   onHide: function () {

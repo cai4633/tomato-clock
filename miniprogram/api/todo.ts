@@ -1,5 +1,4 @@
-import { TodoListItem } from '../../typings/types/index';
-import { http } from './http';
+import { TodoListItem, TomatoItem } from '../../typings/types/index';
 
 const { AV } = getApp().globalData
 const getTodoList = () => {
@@ -11,8 +10,8 @@ const getTodoList = () => {
     .catch(console.error);
 }
 
-const createTodoItem = (object: any, description: string) => {
-  const todos = new object()
+const createTodoItem = (description: string) => {
+  const todos = new AV.Object('Todos')
   todos.set('id', Math.random() * 100000 | 0)
   todos.set('completed', false)
   todos.set('description', description)
@@ -31,20 +30,24 @@ const updateTodoItem = (id: string, description: string) => {
 }
 
 const createTomato = () => {
-  return http.post('/tomatoes').then((res) => {
-    return res && typeof res.data === 'object' ? res.data.resource : []
-  })
+  const tomatoes = new AV.Object('Tomatoes')
+  tomatoes.set('id', Math.random() * 100000 | 0)
+  tomatoes.set('aborted', false)
+  tomatoes.set('description', '')
+  return tomatoes.save().then((res: TomatoItem) => res.toJSON())
 }
 
 interface ParamType {
-  id: number
+  objectId: string
   description: string
   aborted: boolean
 }
+
 const updateTomato = (param: ParamType) => {
-  const { id, description, aborted } = param
-  return http.put(`/tomatoes/${id}`, {
-    description, aborted
-  }).then(res => res && typeof res.data === 'object' ? res.data.resource : [])
+  const { objectId, description, aborted } = param
+  const tomato = AV.Object.createWithoutData('Tomatoes', objectId);
+  tomato.set('description', description);
+  tomato.set('aborted', aborted)
+  return tomato.save().then((res: TomatoItem) => res.toJSON());
 }
 export { getTodoList, createTodoItem, deleteTodoItem, updateTodoItem, createTomato, updateTomato }

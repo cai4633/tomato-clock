@@ -19,13 +19,9 @@ Page({
     todoList: [],
     defaultValue: '',
     selectedId: 0,
-    Todos: null
   },
 
   onLoad: function (options) {
-    this.setData({
-      Todos: AV.Object.extend('Todos')
-    })
     getTodoList().then(res => {
       this.setData({
         'todoList': res
@@ -47,7 +43,7 @@ Page({
       updateConfirmVisible: true
     })
   },
-  
+
   hideUpdateConfirm() {
     this.setData({
       updateConfirmVisible: false
@@ -72,7 +68,7 @@ Page({
 
   enter(e) {
     this.hideCreateConfirm()
-    createTodoItem(this.data.Todos, e.detail).then((value) => {
+    createTodoItem(e.detail).then((value) => {
       this.setData({
         'todoList': [value, ...this.data.todoList]
       })
@@ -105,7 +101,7 @@ Page({
 
   toggleFinished(e) {
     const id = e.detail
-    if (!id) { 
+    if (!id) {
       return
     }
     deleteTodoItem(id)

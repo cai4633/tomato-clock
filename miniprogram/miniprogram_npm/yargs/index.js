@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1602998376041, function(require, module, exports) {
+__DEFINE__(1603008214503, function(require, module, exports) {
 var assert = require('assert')
 var Completion = require('./lib/completion')
 var Parser = require('./lib/parser')
@@ -671,8 +671,8 @@ function singletonify (inst) {
   })
 }
 
-}, function(modId) {var map = {"./lib/completion":1602998376042,"./lib/parser":1602998376043,"./lib/tokenize-arg-string":1602998376044,"./lib/usage":1602998376045,"./lib/validation":1602998376046}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376042, function(require, module, exports) {
+}, function(modId) {var map = {"./lib/completion":1603008214504,"./lib/parser":1603008214505,"./lib/tokenize-arg-string":1603008214506,"./lib/usage":1603008214507,"./lib/validation":1603008214508}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1603008214504, function(require, module, exports) {
 var fs = require('fs')
 var path = require('path')
 
@@ -766,7 +766,7 @@ module.exports = function (yargs, usage) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376043, function(require, module, exports) {
+__DEFINE__(1603008214505, function(require, module, exports) {
 // fancy-pants parsing of argv, originally forked
 // from minimist: https://www.npmjs.com/package/minimist
 var camelCase = require('camelcase')
@@ -1289,7 +1289,7 @@ module.exports = function (args, opts, y18n) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376044, function(require, module, exports) {
+__DEFINE__(1603008214506, function(require, module, exports) {
 // take an un-split argv string and tokenize it.
 module.exports = function (argString) {
   var i = 0
@@ -1324,7 +1324,7 @@ module.exports = function (argString) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376045, function(require, module, exports) {
+__DEFINE__(1603008214507, function(require, module, exports) {
 // this file handles outputting usage instructions,
 // failures, etc. keeps logging in one place.
 var cliui = require('cliui')
@@ -1710,7 +1710,7 @@ module.exports = function (yargs, y18n) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376046, function(require, module, exports) {
+__DEFINE__(1603008214508, function(require, module, exports) {
 // validation-type-stuff, missing params,
 // bad implications, custom checks.
 module.exports = function (yargs, usage, y18n) {
@@ -1962,6 +1962,6 @@ module.exports = function (yargs, usage, y18n) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1602998376041);
+return __REQUIRE__(1603008214503);
 })()
 //# sourceMappingURL=index.js.map

@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1602998376029, function(require, module, exports) {
+__DEFINE__(1603008214491, function(require, module, exports) {
 
 
 const WebSocket = require('./lib/websocket');
@@ -15,8 +15,8 @@ WebSocket.Sender = require('./lib/sender');
 
 module.exports = WebSocket;
 
-}, function(modId) {var map = {"./lib/websocket":1602998376030,"./lib/websocket-server":1602998376039,"./lib/receiver":1602998376036,"./lib/sender":1602998376038}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376030, function(require, module, exports) {
+}, function(modId) {var map = {"./lib/websocket":1603008214492,"./lib/websocket-server":1603008214501,"./lib/receiver":1603008214498,"./lib/sender":1603008214500}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1603008214492, function(require, module, exports) {
 
 
 const EventEmitter = require('events');
@@ -846,8 +846,8 @@ function socketOnError () {
   }
 }
 
-}, function(modId) { var map = {"./permessage-deflate":1602998376031,"./event-target":1602998376034,"./extension":1602998376035,"./constants":1602998376033,"./receiver":1602998376036,"./sender":1602998376038}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376031, function(require, module, exports) {
+}, function(modId) { var map = {"./permessage-deflate":1603008214493,"./event-target":1603008214496,"./extension":1603008214497,"./constants":1603008214495,"./receiver":1603008214498,"./sender":1603008214500}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1603008214493, function(require, module, exports) {
 
 
 const Limiter = require('async-limiter');
@@ -1365,8 +1365,8 @@ function inflateOnError (err) {
   this[kCallback](err);
 }
 
-}, function(modId) { var map = {"./buffer-util":1602998376032,"./constants":1602998376033}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376032, function(require, module, exports) {
+}, function(modId) { var map = {"./buffer-util":1603008214494,"./constants":1603008214495}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1603008214494, function(require, module, exports) {
 
 
 /**
@@ -1441,7 +1441,7 @@ try {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376033, function(require, module, exports) {
+__DEFINE__(1603008214495, function(require, module, exports) {
 
 
 module.exports = {
@@ -1454,7 +1454,7 @@ module.exports = {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376034, function(require, module, exports) {
+__DEFINE__(1603008214496, function(require, module, exports) {
 
 
 /**
@@ -1627,7 +1627,7 @@ const EventTarget = {
 module.exports = EventTarget;
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376035, function(require, module, exports) {
+__DEFINE__(1603008214497, function(require, module, exports) {
 
 
 //
@@ -1841,7 +1841,7 @@ function format (extensions) {
 module.exports = { format, parse };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376036, function(require, module, exports) {
+__DEFINE__(1603008214498, function(require, module, exports) {
 
 
 const stream = require('stream');
@@ -2356,8 +2356,8 @@ function toArrayBuffer (buf) {
   return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
 }
 
-}, function(modId) { var map = {"./permessage-deflate":1602998376031,"./buffer-util":1602998376032,"./validation":1602998376037,"./constants":1602998376033}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376037, function(require, module, exports) {
+}, function(modId) { var map = {"./permessage-deflate":1603008214493,"./buffer-util":1603008214494,"./validation":1603008214499,"./constants":1603008214495}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1603008214499, function(require, module, exports) {
 
 
 try {
@@ -2389,7 +2389,7 @@ exports.isValidStatusCode = (code) => {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376038, function(require, module, exports) {
+__DEFINE__(1603008214500, function(require, module, exports) {
 
 
 const crypto = require('crypto');
@@ -2792,8 +2792,8 @@ function viewToBuffer (view) {
   return buf;
 }
 
-}, function(modId) { var map = {"./permessage-deflate":1602998376031,"./buffer-util":1602998376032,"./validation":1602998376037,"./constants":1602998376033}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1602998376039, function(require, module, exports) {
+}, function(modId) { var map = {"./permessage-deflate":1603008214493,"./buffer-util":1603008214494,"./validation":1603008214499,"./constants":1603008214495}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1603008214501, function(require, module, exports) {
 
 
 const EventEmitter = require('events');
@@ -3152,7 +3152,7 @@ function abortHandshake (socket, code, message, headers) {
   socket.destroy();
 }
 
-}, function(modId) { var map = {"./permessage-deflate":1602998376031,"./extension":1602998376035,"./constants":1602998376033,"./websocket":1602998376030}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1602998376029);
+}, function(modId) { var map = {"./permessage-deflate":1603008214493,"./extension":1603008214497,"./constants":1603008214495,"./websocket":1603008214492}; return __REQUIRE__(map[modId], modId); })
+return __REQUIRE__(1603008214491);
 })()
 //# sourceMappingURL=index.js.map

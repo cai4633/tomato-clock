@@ -17,11 +17,9 @@ Page({
 
   wxLogin(iv, encryptedData) {
     AV.User.loginWithMiniApp().then(user => {
-      console.log(user);
     }).catch(console.error);
     wx.login({
       success: (res) => {
-
         const data = {
           code: res.code,
           encrypted_data: encryptedData,

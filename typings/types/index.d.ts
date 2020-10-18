@@ -7,3 +7,9 @@ interface TodoListItem extends Object {
   description: string,
   completed: boolean
 }
+
+interface TomatoItem extends Object {
+  id?: string,
+  description: string,
+  aborted: boolean
+}
