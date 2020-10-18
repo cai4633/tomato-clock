@@ -3,13 +3,16 @@ import {
   updateTomato
 } from '../../api/todo';
 import {
+  http
+} from '../../api/http'
+import {
   padLeft
 } from '../../common/js/utils';
 Page({
   timer: null,
   data: {
-    totalTime: 5,
-    remaining: 5,
+    totalTime: 15,
+    remaining: 15,
     time: '',
     isPause: true,
     isFinished: false,
@@ -84,13 +87,17 @@ Page({
     const {
       id
     } = this.data.tomato
-    updateTomato({
-      id,
+    // updateTomato({
+    //   id,
+    //   description: e.detail,
+    //   aborted: true
+    // }).then((response) => {
+    //   wx.navigateBack()
+    // })
+    http.put(`/tomatoes/${id}`, {
       description: e.detail,
       aborted: true
-    }).then((response) => {
-      wx.navigateBack()
-    })
+    }).then(res => res && typeof res.data === 'object' ? res.data.resource : [])
     this.hideConfirm()
   },
   hideFinishConfirm() {
@@ -99,22 +106,29 @@ Page({
     });
   },
   confirmFinish(e) {
-    updateTomato({
-      id: this.data.tomato.id,
+    http.put(`/tomatoes/${this.data.tomato.id}`, {
       description: e.detail,
       aborted: false
-    }).then((res) => {
-      console.log(res);
-
-    })
+    }).then(res => res && typeof res.data === 'object' ? res.data.resource : [])
+    // updateTomato({
+    //   id: this.data.tomato.id,
+    //   description: e.detail,
+    //   aborted: false
+    // }).then((res) => {
+    //   console.log(res);
+    // })
     this.hideFinishConfirm();
   },
   cancelFinish() {
     this.hideFinishConfirm()
   },
   onReady: function () {
+    console.log(111);
+
     this.timeStart()
     createTomato().then(response => {
+      console.log(response);
+
       this.setData({
         tomato: response
       })

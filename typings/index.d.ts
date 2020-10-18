@@ -7,7 +7,11 @@ interface IAppOption {
     app_id?: string,
     app_secret?: string,
     t_app_id?: string,
-    t_app_secret?: string
+    t_app_secret?: string,
+    AV: any
   }
   userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,
 }
+
+
+

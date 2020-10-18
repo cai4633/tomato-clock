@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dayjs": "^1.9.3",
+    "leancloud-storage": "^4.7.0",
     "miniprogram-computed": "^2.1.1"
   }
 }

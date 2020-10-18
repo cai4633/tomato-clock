@@ -1,17 +1,12 @@
-// pages/login/login.js
 import {
   http
 } from '../../api/http'
-
 const {
   app_id,
-  app_secret
+  app_secret,
+  AV
 } = getApp().globalData
 Page({
-  data: {
-
-  },
-
   login(e) {
     const {
       iv,
@@ -21,8 +16,12 @@ Page({
   },
 
   wxLogin(iv, encryptedData) {
+    AV.User.loginWithMiniApp().then(user => {
+      console.log(user);
+    }).catch(console.error);
     wx.login({
       success: (res) => {
+
         const data = {
           code: res.code,
           encrypted_data: encryptedData,

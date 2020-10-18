@@ -9,33 +9,29 @@ import {
   updateTodoItem
 } from '../../api/todo';
 
+const {
+  AV
+} = getApp().globalData
 Page({
   data: {
     createConfirmVisible: false,
     updateConfirmVisible: false,
     todoList: [],
     defaultValue: '',
-    selectedId: 0
+    selectedId: 0,
+    Todos: null
   },
 
   onLoad: function (options) {
-    getTodoList().then(value => {
+    this.setData({
+      Todos: AV.Object.extend('Todos')
+    })
+    getTodoList().then(res => {
       this.setData({
-        'todoList': value
+        'todoList': res
       })
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  onShow: function () {},
-
-  onHide: function () {},
-
-  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -51,32 +47,38 @@ Page({
       updateConfirmVisible: true
     })
   },
+  
   hideUpdateConfirm() {
     this.setData({
       updateConfirmVisible: false
     })
   },
+
   showCreateConfirm(e) {
     this.setData({
       createConfirmVisible: true
     })
   },
+
   hideCreateConfirm() {
     this.setData({
       createConfirmVisible: false
     })
   },
+
   cancel(e) {
     this.hideCreateConfirm()
   },
+
   enter(e) {
     this.hideCreateConfirm()
-    createTodoItem(e.detail).then((value) => {
+    createTodoItem(this.data.Todos, e.detail).then((value) => {
       this.setData({
         'todoList': [value, ...this.data.todoList]
       })
     })
   },
+
   updateItem(e) {
     this.setData({
       selectedId: e.detail.id,
@@ -84,28 +86,31 @@ Page({
     })
     this.showUpdateConfirm()
   },
+
   cancelUpdate() {
     this.hideUpdateConfirm()
   },
+
   enterUpdate(e) {
     const {
       selectedId
     } = this.data
-    updateTodoItem(this.data.selectedId, e.detail).then(value => {
+    updateTodoItem(this.data.selectedId, e.detail).then(res => {
       this.setData({
-        todoList: this.data.todoList.map((item) => (item.id === this.data.selectedId) ? value : item)
+        todoList: this.data.todoList.map((item) => (item.objectId === this.data.selectedId) ? res : item)
       })
     })
     this.hideUpdateConfirm()
   },
+
   toggleFinished(e) {
-    const id = parseInt(e.detail)
-    if (!id) { // id 是NaN
+    const id = e.detail
+    if (!id) { 
       return
     }
     deleteTodoItem(id)
     const list = this.data.todoList.slice()
-    const newlist = list.map((item) => item.id === id ? {
+    const newlist = list.map((item) => item.objectId === id ? {
       ...item,
       completed: !item.completed
     } : item)

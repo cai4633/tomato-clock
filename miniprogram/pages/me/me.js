@@ -23,6 +23,8 @@ Page({
     http.get('/tomatoes', {
       is_group: "yes"
     }).then((res) => {
+      console.log(res);
+      
       this.setData({
         taskList: res.data.resources
       })
@@ -35,6 +37,8 @@ Page({
     http.get('/todos', {
       is_group: "yes"
     }).then((res) => {
+      console.log(res);
+      
       this.setData({
         taskList: res.data.resources
       })
