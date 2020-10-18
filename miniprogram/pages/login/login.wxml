@@ -9,7 +9,7 @@
   <view class="btn">
     <button class="padding" open-type="getUserInfo" bindgetuserinfo="login" withCredential='true'>登录</button>
   </view>
-  <navigator url="/pages/binding/binding" hover-class="none">
-    <text>还没有与pc端绑定？去绑定 ></text>
-  </navigator>
+  <view hover-class="none">
+    <text> 使用微信  点击登录 ></text>
+  </view>
 </view>

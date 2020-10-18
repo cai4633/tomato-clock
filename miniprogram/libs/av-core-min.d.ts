@@ -1,6 +1,5 @@
 import { Realtime } from './@leancloud/realtime';
 import { Adapters } from './@leancloud/types';
-
 export as namespace AV;
 
 interface IteratorResult<T> {
@@ -891,11 +890,13 @@ export class Captcha {
 
   refresh(): Promise<string>;
   verify(code: string): Promise<string>;
+
+  
   bind(
     elements?: {
-      textInput?: string | HTMLInputElement;
-      image?: string | HTMLImageElement;
-      verifyButton?: string | HTMLElement;
+      // textInput?: string | HTMLInputElement;
+      // image?: string | HTMLImageElement;
+      // verifyButton?: string | HTMLElement;
     },
     callbacks?: {
       success?: (validateToken: string) => any;

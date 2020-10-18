@@ -1,4 +1,5 @@
 miniprogram/app.ts
 miniprogram/app.js
+# node_modules
+/miniprogram/miniprogram_npm
 node_modules
-# /miniprogram/miniprogram_npm

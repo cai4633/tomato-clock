@@ -6,7 +6,6 @@
     "pages/me/me",
     "pages/home/home",
     "pages/tomato/tomato"
-
   ],
   "tabBar": {
     "selectedColor": "#F6705A",
@@ -15,7 +14,7 @@
       "iconPath": "common/images/total.png",
       "selectedIconPath": "common/images/total-active.png",
       "text": "专注"
-    },  {
+    }, {
       "pagePath": "pages/me/me",
       "iconPath": "common/images/me.png",
       "selectedIconPath": "common/images/me-active.png",

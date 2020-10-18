@@ -1,8 +1,5 @@
 // components/tClock/tClock.js
 Component({
-  data: {
-
-  },
   properties: {
     text: {
       type: String,

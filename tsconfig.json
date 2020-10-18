@@ -24,7 +24,7 @@
     ]
   },
   "include": [
-    "./**/*.ts", "miniprogram/pages/home/home.js", "miniprogram/common/js/utils.js"
+    "./**/*.ts","miniprogram/pages/home/home.js", "miniprogram/common/js/utils.js"
   ],
   "exclude": [
     "node_modules"

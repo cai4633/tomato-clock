@@ -11,7 +11,7 @@
       <t-clock text='点击开始番茄' fontSize='26'></t-clock>
     </navigator>
   </view>
-  <t-confirm visible='{{createConfirmVisible}}' bindcancel='cancel' bindenter='enter' placeholder='新的番茄任务'></t-confirm>
+  <t-confirm visible='{{createConfirmVisible}}' bindcancel='cancel' bindenter='enter' placeholder='新的待办任务'></t-confirm>
   <t-confirm visible='{{updateConfirmVisible}}' bindcancel='cancelUpdate' bindenter='enterUpdate'
     defaultValue='{{defaultValue}}'></t-confirm>
 </view>

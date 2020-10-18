@@ -6,7 +6,6 @@
     </view>
     <view class="name">
       <open-data type="userNickName"></open-data>
-      <text class='btn'>绑定pc账号</text>
     </view>
     <view class="qr">
       <button open-type='contact' class='btn'>问题反馈</button>
@@ -19,11 +18,11 @@
     </view>
     <view class="content">
       <wxs src='../../common/wxs/format.wxs' module="format"></wxs>
-      <view class="item" wx:for="{{taskList}}" wx:key='index'>
-        <view class="date">{{format.monthFormat(index)}}</view>
-        <view class="task" wx:for="{{item}}" wx:key='id' wx:for-item='task'>
-          <text class="time">{{format.dateFormat(task.created_at,"hh:mm")}}</text>
-          <text class="text">{{task.description}}</text>
+      <view class="item" wx:for="{{taskList}}" wx:key='id'>
+        <view class="date">{{format.monthFormat(item[0])}}</view>
+        <view class="task" wx:for="{{item[1]}}" wx:key='id' wx:for-item='task'>
+          <text class="time">{{format.dateFormat(task.createdAt,"hh:mm")}}</text>
+          <text class="text">{{task.description || '暂无描述'}}</text>
         </view>
       </view>
     </view>

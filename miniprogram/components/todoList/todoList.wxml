@@ -3,6 +3,6 @@
   <view class="li" wx:for="{{list}}" wx:key='id' id='{{item.id}}' wx:if="{{!item.completed}}">
     <view class='select {{item.completed && "finished"}}' bindtap="ontab" data-id='{{item.objectId}}'></view>
     <view class='text nowrap-2' bindtap="updateItem" data-id='{{item.objectId}}' data-content='{{item.description}}'>
-      {{item.description}}</view>
+      {{item.description || '暂无描述'}}</view>
   </view>
 </scroll-view>

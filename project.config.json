@@ -22,7 +22,7 @@
     "newFeature": false,
     "coverView": true,
     "nodeModules": true,
-    "autoAudits": false,
+    "autoAudits": true,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
     "uglifyFileName": false,

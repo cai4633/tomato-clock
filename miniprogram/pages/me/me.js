@@ -1,32 +1,29 @@
 import {
   http
 } from '../../api/http'
+import dayjs from 'dayjs'
+import {
+  getAllTomatoes,
+  getAllCompleted
+} from '../../api/me'
+import {
+  rankByDate
+} from '../../common/js/me'
 Page({
   data: {
     tabIndex: 1,
     taskList: {}
   },
-  onLoad(){
-    http.get('/tomatoes', {
-      is_group: "yes"
-    }).then((res) => {
-      this.setData({
-        taskList: res.data.resources
-      })
-    })
+  onLoad() {
+    this.gotoTomato()
   },
-  onShow() {},
   gotoTomato() {
     this.setData({
       tabIndex: 1
     })
-    http.get('/tomatoes', {
-      is_group: "yes"
-    }).then((res) => {
-      console.log(res);
-      
+    getAllTomatoes().then((res) => {
       this.setData({
-        taskList: res.data.resources
+        taskList: rankByDate(res)
       })
     })
   },
@@ -34,13 +31,9 @@ Page({
     this.setData({
       tabIndex: 2
     })
-    http.get('/todos', {
-      is_group: "yes"
-    }).then((res) => {
-      console.log(res);
-      
+    getAllCompleted().then((res) => {
       this.setData({
-        taskList: res.data.resources
+        taskList: rankByDate(res)
       })
     })
   }

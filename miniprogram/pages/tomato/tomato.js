@@ -11,8 +11,8 @@ import {
 Page({
   timer: null,
   data: {
-    totalTime: 15,
-    remaining: 15,
+    totalTime: 1500,
+    remaining: 1500,
     time: '',
     isPause: true,
     isFinished: false,
