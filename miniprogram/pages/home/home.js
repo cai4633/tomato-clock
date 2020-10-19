@@ -67,11 +67,13 @@ Page({
   },
 
   enter(e) {
-    this.hideCreateConfirm()
     createTodoItem(e.detail).then((value) => {
       this.setData({
         'todoList': [value, ...this.data.todoList]
       })
+      this.hideCreateConfirm()
+    }).catch((err) => {
+      console.log(err);
     })
   },
 
@@ -95,8 +97,10 @@ Page({
       this.setData({
         todoList: this.data.todoList.map((item) => (item.objectId === this.data.selectedId) ? res : item)
       })
+      this.hideUpdateConfirm()
+    }).catch((err) => {
+      console.log(err);
     })
-    this.hideUpdateConfirm()
   },
 
   toggleFinished(e) {

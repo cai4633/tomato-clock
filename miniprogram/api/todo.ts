@@ -1,5 +1,7 @@
 import { TodoListItem, TomatoItem } from '../../typings/types/index';
-
+import {
+  secureCheck
+} from './cloudfunc'
 const { AV } = getApp().globalData
 const getTodoList = () => {
   return new AV.Query('Todos').descending('createdAt')
@@ -11,11 +13,15 @@ const getTodoList = () => {
 }
 
 const createTodoItem = (description: string) => {
-  const todos = new AV.Object('Todos')
-  todos.set('id', Math.random() * 100000 | 0)
-  todos.set('completed', false)
-  todos.set('description', description)
-  return todos.save().then((res: TodoListItem) => res.toJSON())
+  return secureCheck(description).then(() => {
+    var todos = new AV.Object('Todos');
+    todos.set('id', Math.random() * 100000 | 0);
+    todos.set('completed', false);
+    todos.set('description', description);
+    return todos.save().then(function (res: TodoListItem) {
+      return res.toJSON();
+    });
+  })
 }
 
 const deleteTodoItem = (id: string) => {
@@ -24,9 +30,11 @@ const deleteTodoItem = (id: string) => {
   return todo.save().then((res: TodoListItem) => res.toJSON());
 }
 const updateTodoItem = (id: string, description: string) => {
-  const todo = AV.Object.createWithoutData('Todos', id);
-  todo.set('description', description);
-  return todo.save().then((res: TodoListItem) => res.toJSON());
+  return secureCheck(description).then(() => {
+    const todo = AV.Object.createWithoutData('Todos', id);
+    todo.set('description', description);
+    return todo.save().then((res: TodoListItem) => res.toJSON());
+  })
 }
 
 const createTomato = () => {
@@ -45,9 +53,12 @@ interface ParamType {
 
 const updateTomato = (param: ParamType) => {
   const { objectId, description, aborted } = param
-  const tomato = AV.Object.createWithoutData('Tomatoes', objectId);
-  tomato.set('description', description);
-  tomato.set('aborted', aborted)
-  return tomato.save().then((res: TomatoItem) => res.toJSON());
+  return secureCheck(description).then(() => {
+    const tomato = AV.Object.createWithoutData('Tomatoes', objectId);
+    tomato.set('description', description);
+    tomato.set('aborted', aborted)
+    return tomato.save().then((res: TomatoItem) => res.toJSON());
+  })
 }
+
 export { getTodoList, createTodoItem, deleteTodoItem, updateTodoItem, createTomato, updateTomato }

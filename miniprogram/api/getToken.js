@@ -1,0 +1,12 @@
+import { http } from "./http";
+var _a = getApp().globalData, app_id = _a.app_id, app_secret = _a.app_secret;
+export function getToken() {
+    http.get('/cgi-bin/token', {
+        grant_type: "client_credential",
+        appid: app_id,
+        secret: app_secret
+    }).then(function (res) {
+        console.log(res);
+    });
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2V0VG9rZW4uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJnZXRUb2tlbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsSUFBSSxFQUFFLE1BQU0sUUFBUSxDQUFDO0FBRXhCLElBQUEsd0JBQTRDLEVBQTFDLGtCQUFNLEVBQUUsMEJBQWtDLENBQUE7QUFDbEQsTUFBTSxVQUFVLFFBQVE7SUFDdEIsSUFBSSxDQUFDLEdBQUcsQ0FBQyxnQkFBZ0IsRUFBRTtRQUN6QixVQUFVLEVBQUUsbUJBQW1CO1FBQy9CLEtBQUssRUFBRSxNQUFNO1FBQ2IsTUFBTSxFQUFFLFVBQVU7S0FDbkIsQ0FBQyxDQUFDLElBQUksQ0FBQyxVQUFDLEdBQUc7UUFDVixPQUFPLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxDQUFDO0lBQ25CLENBQUMsQ0FBQyxDQUFBO0FBQ0osQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGh0dHAgfSBmcm9tIFwiLi9odHRwXCI7XHJcblxyXG5jb25zdCB7IGFwcF9pZCwgYXBwX3NlY3JldCB9ID0gZ2V0QXBwKCkuZ2xvYmFsRGF0YVxyXG5leHBvcnQgZnVuY3Rpb24gZ2V0VG9rZW4oKSB7XHJcbiAgaHR0cC5nZXQoJy9jZ2ktYmluL3Rva2VuJywge1xyXG4gICAgZ3JhbnRfdHlwZTogXCJjbGllbnRfY3JlZGVudGlhbFwiLFxyXG4gICAgYXBwaWQ6IGFwcF9pZCxcclxuICAgIHNlY3JldDogYXBwX3NlY3JldFxyXG4gIH0pLnRoZW4oKHJlcykgPT4ge1xyXG4gICAgY29uc29sZS5sb2cocmVzKTtcclxuICB9KVxyXG59Il19

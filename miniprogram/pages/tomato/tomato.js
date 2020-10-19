@@ -98,8 +98,10 @@ Page({
         isFinished: true
       })
       wx.navigateBack()
+      this.hideConfirm()
+    }).catch((err) => {
+      console.log(err);
     })
-    this.hideConfirm()
   },
   hideFinishConfirm() {
     this.setData({
@@ -111,8 +113,11 @@ Page({
       objectId: this.data.tomato.objectId,
       description: e.detail,
       aborted: false
+    }).then(() => {
+      this.hideFinishConfirm();
+    }).catch((err) => {
+      console.log(err);
     })
-    this.hideFinishConfirm();
   },
   cancelFinish() {
     this.hideFinishConfirm()

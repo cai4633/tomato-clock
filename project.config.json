@@ -3,6 +3,7 @@
   "packOptions": {
     "ignore": []
   },
+  "cloudfunctionRoot": "miniprogram/cloudfunctions/",
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
   "libVersion": "2.8.2",
@@ -15,7 +16,7 @@
   "setting": {
     "urlCheck": true,
     "es6": true,
-    "enhance": true,
+    "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,

@@ -1,3 +1,7 @@
+import {
+  getToken
+} from '../../api/getToken'
+
 const {
   app_id,
   app_secret,

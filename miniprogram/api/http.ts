@@ -1,31 +1,23 @@
-const {
-  host,
-  t_app_id,
-  t_app_secret
-} = getApp().globalData
-
 interface PromiseValueType {
   data: string | WechatMiniprogram.IAnyObject
   header: WechatMiniprogram.IAnyObject
   statusCode: number
   errMsg: string
 }
-const _http = (method: WechatMiniprogram.RequestOption['method'], url: string, data: any) => {
+
+const { host } = getApp().globalData
+const _http = (method: WechatMiniprogram.RequestOption['method'], path: string, data: any) => {
   return new Promise<PromiseValueType>((resolve, reject) => {
     wx.request({
       method,
-      url: `${host}${url}`,
+      url: `${host}${path}`,
       data,
-      dataType: 'json',
-      header: {
-        Authorization: `Bearer ${wx.getStorageSync('X-token')}`,
-        "t-app-id": t_app_id,
-        "t-app-secret": t_app_secret
-      },
       success: (res: WechatMiniprogram.RequestSuccessCallbackResult) => {
         const {
           statusCode
         } = res
+        console.log(res);
+
         if (statusCode >= 400) {
           if (statusCode === 401) {
             wx.redirectTo({
@@ -44,14 +36,14 @@ const _http = (method: WechatMiniprogram.RequestOption['method'], url: string, d
         reject(error)
       }
     })
-  }).catch((e:any)=>{
+  }).catch((e: any) => {
     console.log(e);
   })
 }
 
 export const http = {
-  get: (url: string, param?: any) => _http('GET', url, param),
-  post: (url: string, data?: any) => _http('POST', url, data),
-  put: (url: string, data: any) => _http('PUT', url, data),
-  delete: (url: string, data: any) => _http('DELETE', url, data),
+  get: (path: string, param?: any) => _http('GET', path, param),
+  post: (path: string, data?: any) => _http('POST', path, data),
+  put: (path: string, data: any) => _http('PUT', path, data),
+  delete: (path: string, data: any) => _http('DELETE', path, data),
 }
